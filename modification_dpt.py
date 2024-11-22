@@ -177,10 +177,10 @@ def find(path):
             x1, y1, x2, y2 = map(int, result[:4])
             #Region of Interest
             #cv2.imshow("roi",image[y1:y2, x1:x2])
-            from trial_silhouette import find_outline2
-            find_outline2(image[y1:y2, x1:x2])
             from trial_Int_DPT_POSE import pose_extimation
             rightco,leftco=pose_extimation(image[y1:y2, x1:x2])
+            from trial_silhouette import find_outline1
+            find_outline1(image[y1:y2, x1:x2])
             roi = (x1, y1, x2 - x1, y2 - y1) 
             confidence = result[4].item()
             cv2.rectangle(image, (x1, y1), (x2, y2), (255, 255, 0), 2)
