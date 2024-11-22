@@ -1,0 +1,12 @@
+opencv-python
+mediapipe
+playsound==1.2.2
+numpy
+pyttsx3
+pygame
+pillow
+ultralytics
+matplotlib
+transformers
+torch
+Pillow
