@@ -4,13 +4,14 @@ import matplotlib.pyplot as plt
 from transformers import AutoImageProcessor, AutoModelForDepthEstimation
 import torch
 import numpy as np
+import math
 from PIL import Image
 
 # Replace 'your_huggingface_token' with your actual Hugging Face token if required
 huggingface_token = 'YOUR_HUGGINGFACE_TOKEN'
 
 # Fixed scaling factor
-SCALING_FACTOR = 0.95
+SCALING_FACTOR = 0.178343949
 depth_map = None
 rightco = leftco = []
 def two_points_distance(a,b,roi):
@@ -25,7 +26,7 @@ def two_points_distance(a,b,roi):
     ry_pixel = int(ry*h)
     return euclidean_distance(lx,rx,ly,ry,depth_map[ly_pixel,lx_pixel],depth_map[ry_pixel,rx_pixel])
 def euclidean_distance(x1,x2,y1,y2,z1,z2):
-    return abs(z1-z2)
+    return math.sqrt((x2-x1)**2+(y1-y2)**2+(z2-z1)**2)
 def get_depth_map(image, token=None):
     try:
         print("Loading image processor and model...")
@@ -213,13 +214,13 @@ def find(path):
                 print(f"Estimated farthest distance to object: {farthest_distance} meters")
             height = estimate_person_height(image, roi, SCALING_FACTOR, token=huggingface_token,depth_map=depth_map)
             armspan = estimate_person_armspan(image,roi, SCALING_FACTOR,leftcoordinates=leftco,rightcoordinates=rightco,token= huggingface_token,depth_map=depth_map)
-            print(f"HEIGHT IS : {height*100} Cms for SCALING FACTOR : {SCALING_FACTOR} and roi {roi}")
+            print(f"HEIGHT IS : {height} Cms for SCALING FACTOR : {SCALING_FACTOR} and roi {roi}")
     else:
         print("No person detected in the image.")
 
 # find("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Ref_image9.jpg")
 # print("next")
-find("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Ref_image5.jpg")
+find("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Tripod_img_2.jpg")
 
 
 
