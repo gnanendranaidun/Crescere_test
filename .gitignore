@@ -1,5 +1,5 @@
 # Ignore the virtual environment
 pose/
-myenv/
+myvenv/
 venv/
 env/
