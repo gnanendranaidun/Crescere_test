@@ -8,7 +8,7 @@ import math
 from PIL import Image
 
 # Replace 'your_huggingface_token' with your actual Hugging Face token if required
-huggingface_token = 'YOUR_HUGGINGFACE_TOKEN'
+huggingface_token = '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'
 
 # Fixed scaling factor
 SCALING_FACTOR = 0.178343949
@@ -220,7 +220,7 @@ def find(path):
 
 # find("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Ref_image9.jpg")
 # print("next")
-find("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Tripod_img_2.jpg")
+find('C:\\Users\\Anjali Kalarikkal\\Documents\\Crescere\\Crescere_test\\Ref_image4.jpg')
 
 
 

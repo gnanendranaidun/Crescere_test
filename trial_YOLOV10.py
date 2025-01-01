@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import cv2
 from PIL import Image
 model = YOLO("yolov10n.pt")
-source = '/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/Tripod_img_1.jpg'
+source = r'C:\Users\Anjali Kalarikkal\Documents\Crescere\Crescere_test\Tripod_img_1.jpg'
 # model.predict(source=source, save=True)
 image = cv2.imread(source)
 results = model(image)
@@ -13,7 +13,7 @@ for result in results[0].boxes.data:
     #print("person")
     x1, y1, x2, y2 =map(int, result[:4])
     roi_image=image[y1:y2,x1:x2]
-    cv2.imwrite("/Users/gnanendranaidun/Documents/projects/EL_SEM3/TRIAL_pose/Height-Detection/images/height.png",roi_image)
+    cv2.imwrite(r"C:\Users\Anjali Kalarikkal\Documents\Crescere\Crescere_test\images\height.png",roi_image)
     #print(roi_image)
     # roi_pil = Image.fromarray(cv2.cvtColor(roi_image, cv2.COLOR_BGR2RGB))
     # cv2.imshow("roi pil",roi_pil)
