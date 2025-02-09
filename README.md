@@ -46,3 +46,37 @@ python modification_dpt.py
 - YOLO model from Ultralytics.
 - Depth estimation model from Hugging Face.
 
+## Objects Detections
+Cats detection using yolo<br>
+<img src='runs/detect/predict/000000039769.jpg'>
+
+<br>person detection<br>
+<img src="runs/detect/predict3/Gnanu.jpg">
+
+## depth map
+<img src="images/depth-map.png">
+
+## height extimation 
+fixed distance images using tripod to estimate height<br>
+relative scaling factor to be set in the code for accuracy <br>
+accuracy of *99.4%* achieved from this technique<br>
+first bottle image to be passed to model<br>
+
+### bottle image
+<img src="images/BOTTLE.jpg">
+
+then finding scaling fator and pasing the human image
+### Human Img
+<img src="images/Tripod_img_1.jpg">
+
+# final result
+### bottle 
+<img src="images/Bottle result.png">
+
+### Human
+<img src="images/result1.png">
+
+
+## Licence
+This is a personal open source project.
+Feel free to contribute
